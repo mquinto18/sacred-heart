@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number OTP Generator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        text-align: center;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      #otpDisplay,
+      #validationDiv,
+      #continueDiv,
+      #resendDiv {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Number OTP Generator</h1>
+
+      <button onclick="generateOTP()" id="generateBtn">Generate OTP</button>
+      <p id="otpDisplay"></p>
+
+      <div id="validationDiv">
+        <label for="validationInput">Enter OTP: </label>
+        <input type="text" id="validationInput" oninput="validateInput()" />
+        <p id="validationMessage"></p>
+      </div>
+
+      <div id="continueDiv">
+        <button onclick="continueFunction()" id="continueBtn" disabled>
+          Continue
+        </button>
+      </div>
+
+      <div id="resendDiv">
+        <button onclick="resendCode()" id="resendBtn">Resend Code</button>
+      </div>
+
+      <script>
+        function generateOTP() {
+          const numbers = "0123456789";
+          let otp = "";
+
+          // Generate at least 5 numbers
+          for (let i = 0; i < 5; i++) {
+            otp += numbers.charAt(Math.floor(Math.random() * numbers.length));
+          }
+
+          document.getElementById(
+            "otpDisplay"
+          ).innerText = `Generated OTP: ${otp}`;
+          document.getElementById("validationInput").value = ""; // Clear previous input
+          document.getElementById("validationMessage").innerText = ""; // Clear previous validation message
+          document.getElementById("continueBtn").disabled = true; // Disable continue button after generating OTP
+        }
+
+        function validateInput() {
+          const generatedOTP = document
+            .getElementById("otpDisplay")
+            .innerText.split(": ")[1];
+          const inputtedOTP = document.getElementById("validationInput").value;
+          const validationMessage =
+            document.getElementById("validationMessage");
+          const continueBtn = document.getElementById("continueBtn");
+
+          if (generatedOTP === inputtedOTP) {
+            validationMessage.innerText = "Validation successful!";
+            continueBtn.disabled = false; // Enable continue button after successful validation
+          } else {
+            validationMessage.innerText =
+              "Validation failed. Please try again.";
+            continueBtn.disabled = true; // Disable continue button if validation fails
+          }
+        }
+
+        function continueFunction() {
+          alert("Continue button clicked!"); // Add your continue button functionality here
+        }
+
+        function resendCode() {
+          generateOTP(); // Resend a new code
+          alert("New code sent!");
+        }
+      </script>
+    </div>
+  </body>
+</html>

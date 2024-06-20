@@ -1,0 +1,96 @@
+header,
+body {
+  margin: 0;
+}
+
+.container {
+  width: auto;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pop-container {
+  background-color: rgb(255, 255, 255);
+  width: 80vh;
+  height: auto;
+  border-radius: 20px;
+  padding: 25px;
+  max-width: 80vh;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 0.5s ease-in forwards;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px); /* Start with translateY */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* End with translateY */
+  }
+}
+
+.content-container {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.content-container h2 {
+  color: #7066e0;
+}
+
+.image img {
+  margin: 15px;
+  width: 200px;
+  max-width: 200px;
+  min-width: 200px;
+}
+
+.content-container p {
+  margin: 0;
+  font-size: 12px;
+  font-family: "Poppins", sans-serif;
+  color: #393939;
+}
+
+.pop-buttons button {
+  border: none;
+  width: 20vh;
+  max-width: 20vh;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  background-color: #7066e0;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+}
+
+.pop-buttons button:hover {
+  background-color: #685ecf;
+}
+
+.pop-buttons button:active {
+  background-color: #766bee;
+}
+
+.pop-buttons {
+  margin-top: 25px;
+}
+
+.cancel {
+  border: none;
+  margin-top: 20px;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  color: #7066e0;
+}
+
+.cancel:hover {
+  color: #685ecf;
+}

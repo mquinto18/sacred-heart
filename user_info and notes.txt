@@ -1,0 +1,19 @@
+super admin account
+user: super_admin
+pass: superadmin07
+
+admin account
+user: admin
+pass: Admin1107
+
+
+client:
+user: isabel
+pass: Isabel@jameiafei07
+
+user: kathleen
+pass: Test@123
+
+
+mass intention page ay kasama ang house blessing information at optional
+wedding page ay bukod
